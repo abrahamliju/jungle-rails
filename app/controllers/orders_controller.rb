@@ -7,7 +7,9 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    #@user = User.find(email: params[:stripeEmail])
     @line_items = LineItem.where(order_id: order.id)
+    NotificationEmail.order_email(order, @line_items).deliver_now
 
 
     if order.valid?
