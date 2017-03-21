@@ -132,5 +132,26 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.create!(
+  name: 'Liju Abraham',
+  email: 'liju@abraham.com',
+  password_digest: '1234'
+)
+
+User.create!(
+  name: 'Abraham Liju',
+  email: 'abraham@liju.com',
+  password_digest: '12345'
+)
+
+45.times do
+  Review.create!(
+    product_id: Product.all.to_a.sample.id,
+    user_id: User.all.to_a.sample.id,
+    description: Faker::Hipster.paragraph,
+    rating: Faker::Number.between(1, 5)
+  )
+
+end
 
 puts "DONE!"
