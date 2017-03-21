@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    # binding.pry
+    #  binding.pry
     @review = Review.new(product: @product)
     @reviews_rating = @reviews_rating = @product.reviews.map{ |ele| ele.rating}
     @reviews_rating = @reviews_rating.inject(&:+) / @reviews_rating.size

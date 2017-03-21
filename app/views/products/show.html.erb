@@ -41,13 +41,17 @@
           <dd><%= @reviews_rating %> </dd>
           </br>
           <%@product.reviews.reverse_each do |review|%>
+            <dt>User</dt>
+            <dd><%=review.user.name%></dd>
             <dt>Rating - </dt>
             <dd><%=review.rating%></dd>
             <dt>Review - </dt>
             <dd><%=review.description%></dd>
-            <% if current_user.id == review.user_id %>
-              <dd><%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %></dd>
-            <% end %>
+          <% if !current_user %>
+            <dd></dd>
+          <% elsif current_user.id == review.user_id %>
+            <dd><%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %></dd>
+          <% end %>
             </br>
           <%end%>
         </dl>
