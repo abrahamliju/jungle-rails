@@ -133,13 +133,15 @@ cat3.products.create!({
 })
 
 User.create!(
-  name: 'Liju Abraham',
+  first_name: 'Liju',
+  last_name:'Abraham',
   email: 'liju@abraham.com',
   password_digest: '1234'
 )
 
 User.create!(
-  name: 'Abraham Liju',
+  first_name: 'Abraham ',
+  last_name:'Liju',
   email: 'abraham@liju.com',
   password_digest: '12345'
 )

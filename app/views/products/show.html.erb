@@ -42,7 +42,7 @@
           </br>
           <%@product.reviews.reverse_each do |review|%>
             <dt>User</dt>
-            <dd><%=review.user.name%></dd>
+            <dd><%=review.user.first_name%></dd>
             <dt>Rating - </dt>
             <dd><%=review.rating%></dd>
             <dt>Review - </dt>
